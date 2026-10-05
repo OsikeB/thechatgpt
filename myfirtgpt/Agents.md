@@ -283,6 +283,36 @@ Include enough context to investigate: actor, action, target, result, time, and 
 - Distinguish validation, authorization, not-found, conflict, and unexpected errors.
 - Catch exceptions only when recovering, adding useful context, or deliberately rethrowing.
 
+## Visual Design System & UI Assets
+
+The following are mandatory project-wide visual standards and must be treated as part of the design system.
+
+### Typography — Inter
+Use **Inter** as the primary and default application typeface.
+
+Requirements:
+- Load Inter from Google Fonts using the project's frontend asset strategy.
+- Use Inter consistently across public pages, dashboards, forms, navigation, tables, modals, notifications, and other UI surfaces.
+- Establish a coherent type scale, font weights, line heights, and letter spacing in the Tailwind/theme configuration.
+- Avoid introducing another primary font unless explicitly required by a documented product/design decision.
+- Ensure the font loading strategy does not unnecessarily harm performance.
+- Provide appropriate system fallbacks in case the Google Fonts request fails.
+
+### Icons — Font Awesome
+Use **Font Awesome** as the standard icon library for interface icons.
+
+Requirements:
+- Prefer Font Awesome over introducing another icon library.
+- Use semantically appropriate icons and the correct icon style/weight for the design system.
+- Do not use icons as a substitute for accessible text when the meaning is not obvious.
+- Provide accessible names for icon-only controls using accessible labels such as aria-label where appropriate.
+- Decorative icons should be hidden from assistive technology where appropriate.
+- Keep icon sizing, alignment, spacing, and visual weight consistent across the application.
+- Avoid mixing unrelated icon libraries without a documented technical/design reason.
+- Do not use Unicode symbols or emoji as replacements for standard UI icons when an appropriate Font Awesome icon exists.
+
+Inter and Font Awesome must be considered when creating or reviewing any new UI component.
+
 ## Frontend Technology Rules
 
 ### Tailwind CSS
