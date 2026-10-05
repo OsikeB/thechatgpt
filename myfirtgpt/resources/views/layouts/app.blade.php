@@ -19,14 +19,22 @@
         <div class="hidden items-center gap-6 md:flex">
             <a class="text-sm font-semibold text-slate-700 hover:text-blue-600" href="{{ route('posts.index') }}">Articles</a>
             @auth
-                <a class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700" href="{{ route('admin.dashboard') }}">Admin</a>
+                @if (auth()->user()->isAdmin())
+                    <a class="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700" href="{{ route('admin.dashboard') }}">Admin</a>
+                @endif
+            @else
+                <a class="text-sm font-semibold text-slate-700 hover:text-blue-600" href="{{ route('login') }}">Sign in</a>
             @endauth
         </div>
     </nav>
     <div id="mobile-navigation" x-cloak x-show="open" class="border-t border-slate-200 px-4 py-4 md:hidden">
         <a class="block rounded-lg px-3 py-2 font-medium hover:bg-slate-100" href="{{ route('posts.index') }}">Articles</a>
         @auth
-            <a class="mt-1 block rounded-lg px-3 py-2 font-medium hover:bg-slate-100" href="{{ route('admin.dashboard') }}">Admin</a>
+            @if (auth()->user()->isAdmin())
+                <a class="mt-1 block rounded-lg px-3 py-2 font-medium hover:bg-slate-100" href="{{ route('admin.dashboard') }}">Admin</a>
+            @endif
+        @else
+            <a class="mt-1 block rounded-lg px-3 py-2 font-medium hover:bg-slate-100" href="{{ route('login') }}">Sign in</a>
         @endauth
     </div>
 </header>
