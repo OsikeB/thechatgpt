@@ -4,10 +4,12 @@ namespace Tests\Feature;
 
 use App\Models\Post;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PostAuthorizationTest extends TestCase
 {
+    use RefreshDatabase;
     public function test_non_admin_cannot_create_articles(): void
     {
         $user = User::factory()->create(['is_admin' => false]);
