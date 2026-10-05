@@ -13,6 +13,6 @@
             <time datetime="{{ $post->published_at?->toAtomString() }}">{{ $post->published_at?->format('M j, Y') }}</time>
         </div>
     </header>
-    <div class="prose-cms mt-12">{!! $post->body !!}</div>
+    <div class="prose-cms mt-12">{!! nl2br(e($post->body)) !!}</div>
 </article>
 @endsection
